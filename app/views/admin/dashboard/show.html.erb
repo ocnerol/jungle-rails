@@ -1,6 +1,17 @@
-<h1>Admin::Dashboard#show</h1>
-<p>Find me in app/views/admin/dashboard/show.html.erb</p>
+<h1>Welcome to The Dashboard</h1>
 <div>
-<%= @products_count.inspect %>
-<%= @categories_count.inspect %>
+  <table>
+    <tr>
+      <th>Entities</th>
+      <th>Count</th>
+    </tr>
+    <tr>
+      <td>Products</td>
+      <td><%= @products_count.inspect %></td>
+    </tr>
+    <tr>
+      <td>Categories</td>
+      <td><%= @categories_count.inspect %></td>
+    </tr>
+  </table>
 </div>
