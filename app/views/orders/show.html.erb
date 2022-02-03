@@ -5,7 +5,12 @@
   </header>
 
   <div class="order-summary jumbotron">
-    <h4>Thank you for your order!</h4>
+    <h2>Thank you for your order!</h2>
+    <div>
+      <p>We sent you a confirmation email at <%= @order.email %>.<br/> Please check your inbox (or your spam folder, as confirmation emails sometimes end up there).</p>
+    </div>
+    <%= render 'items', total: @order.total_cents %>
+    
   </div>
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
