@@ -9,12 +9,11 @@ class SessionsController < ApplicationController
       # save the user id inside the browser cookie; this is how we keep the user
       # logged in when they navigate around our website
       session[:user_id] = user.id
-      # the following is to see what the value of the variable looks like
-      puts "session[:user_id]" + session[:user_id].inspect
       redirect_to :root
-    else
+      else
       redirect_to :login
-  end
+      end
+    end
 
   def destroy
     session[:user_id] = nil
