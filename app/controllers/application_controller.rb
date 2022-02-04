@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
   # the helper_method line allows @current_user to be accessible in views
-  helper_method: :current_user
+  helper_method :current_user
 
   private
 
