@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   resources :categories, only: [:show]
   resources :about, only: [:index]
   resources :users , only: [:create, :new]
-  get 'login', to: 'session#new'
-  post 'login', to: 'session#create'
-  get 'logout', to: 'session#destroy'
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  get 'logout', to: 'sessions#destroy'
 
   resource :cart, only: [:show] do
     post   :add_item
