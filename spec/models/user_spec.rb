@@ -144,5 +144,20 @@ RSpec.describe User, type: :model do
       expect(User.authenticate_with_credentials(email, password)).to eql(user)
     end
 
+    it 'authenticates user if provided email has trailing spaces before or after email' do
+      user = User.create({
+        first_name: 'Lora',
+        last_name: 'Nci',
+        password: 'loralora',
+        password_confirmation: 'loralora',
+        email: 'LoraNci@email.com'
+      })
+
+      email = "  LoraNci@email.com   "
+      password = user.password
+
+      expect(User.authenticate_with_credentials(email, password)).to eql(user)
+    end
+
   end
 end
