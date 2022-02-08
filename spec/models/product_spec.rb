@@ -14,9 +14,16 @@ RSpec.describe Product, type: :model do
     it 'raises an error if name is not provided' do
       @category = Category.create!(name: 'Electronics')
       @product = Product.new(price_cents: 4000000, quantity: 3, category: @category)
-
+      
       # checls to see if there is an error message
       expect(@product.valid?).to be_falsey
+    end
+    
+    it 'raises an error if price is not provided' do
+      @category = Category.create!(name: 'Electronics')
+      @product = Product.new(name: 'iPad', quantity: 32, category: @category)
+
+      expect(@product.valid?).to be_falsey      
     end
 
   end
