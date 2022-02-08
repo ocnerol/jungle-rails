@@ -159,5 +159,20 @@ RSpec.describe User, type: :model do
       expect(User.authenticate_with_credentials(email, password)).to eql(user)
     end
 
+    it 'successfully authenticates user if provided email has different case than stored email' do
+      user = User.create({
+        first_name: 'Mirabel',
+        last_name: 'Madrigal',
+        password: 'lapinchecasita',
+        password_confirmation: 'lapinchecasita',
+        email: 'Mira.Madrigal@Email.com'
+      })
+
+      email = 'mIrA.mAdRiGal@emAIL.COm'
+      password = user.password
+
+      expect(User.authenticate_with_credentials(email, password)).to eql(user)
+    end
+
   end
 end
