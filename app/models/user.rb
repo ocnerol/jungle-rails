@@ -13,4 +13,9 @@ class User < ActiveRecord::Base
     user && user.authenticate(password)
   end
 
+  def custom_save
+    self.email = self.email.strip
+    self.save
+  end
+
 end
