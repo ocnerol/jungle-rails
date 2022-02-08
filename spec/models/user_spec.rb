@@ -84,5 +84,16 @@ RSpec.describe User, type: :model do
       expect(user.errors.full_messages).to include("First name can't be blank")
     end
 
+    it 'raises an error when a last name is not provided' do
+      user = User.create({
+        first_name: 'Rey',
+        password: '123pass',
+        password_confirmation: '123pass',
+        email: 'Louis@email.com'
+          })
+      
+      expect(user.errors.full_messages).to include("Last name can't be blank")
+    end
+
   end
 end
