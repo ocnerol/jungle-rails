@@ -129,5 +129,20 @@ RSpec.describe User, type: :model do
       expect(User.authenticate_with_credentials(email, password)).to be_nil
     end
 
+    it 'returns the user instance if email and password can be authenticated' do
+      user = User.create({
+        first_name: 'Louis',
+        last_name: 'Roses',
+        password: '123pass!!',
+        password_confirmation: '123pass!!',
+        email: 'LouisRoses@email.com'
+      })
+
+      email = user.email
+      password = user.password
+
+      expect(User.authenticate_with_credentials(email, password)).to eql(user)
+    end
+
   end
 end
