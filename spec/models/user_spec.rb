@@ -73,5 +73,16 @@ RSpec.describe User, type: :model do
       expect(user_2_errors).to include("Email has already been taken")
     end
 
+    it 'raises an error when a first name is not provided' do
+      user = User.create({
+        last_name: 'Torres',
+        password: '123pass',
+        password_confirmation: '123pass',
+        email: 'Louis@email.com'
+          })
+      
+      expect(user.errors.full_messages).to include("First name can't be blank")
+    end
+
   end
 end
