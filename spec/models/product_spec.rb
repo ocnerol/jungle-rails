@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'pp'
 
 RSpec.describe Product, type: :model do
   describe 'Validations' do
@@ -17,27 +16,30 @@ RSpec.describe Product, type: :model do
     
     it 'raises an error if name is not provided' do
       @product = Product.create(price_cents: 4000000, quantity: 3, category: @category)
-      errors  = @product.errors.full_messages
-      
+      errors = @product.errors.full_messages
+
       expect(errors).to include("Name can't be blank")
     end
     
     it 'raises an error if price is not provided' do
-      @product = Product.new(name: 'iPad', quantity: 32, category: @category)
+      @product = Product.create(name: 'iPad', quantity: 32, category: @category)
+      errors = @product.errors.full_messages
 
-      expect(@product.valid?).to be_falsey      
+      expect(errors).to include("Price can't be blank")      
     end
     
     it 'raises an error if quantity is not provided' do
-      @product = Product.new(name: 'TV', price_cents: 330000000, category: @category)
+      @product = Product.create(name: 'TV', price_cents: 330000000, category: @category)
+      errors = @product.errors.full_messages
 
-      expect(@product.valid?).to be_falsey
+      expect(errors).to include("Quantity can't be blank") 
     end
 
     it 'raises an error if category is not provided' do
-      @product = Product.new(name: 'Smart Watch', price_cents: 321200000, quantity: 43)
-      
-      expect(@product.valid?).to be_falsey
+      @product = Product.create(name: 'Smart Watch', price_cents: 321200000, quantity: 43)
+      errors = @product.errors.full_messages
+
+      expect(errors).to include("Category can't be blank") 
     end
 
   end
