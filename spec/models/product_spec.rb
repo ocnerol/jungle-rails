@@ -6,9 +6,17 @@ RSpec.describe Product, type: :model do
     it 'successfully saves a product with all required fields present' do
       @category = Category.create!(name: 'Electronics')
       @product = Product.create!(name: 'iPhone', price_cents: 2000000, quantity: 4, category: @category)
-
+      
       # checks to see if product newly created was successfully saved in database
       expect(Product.exists?(@product.id)).to be_truthy
+    end
+    
+    it 'raises an error if name is not provided' do
+      @category = Category.create!(name: 'Electronics')
+      @product = Product.new(price_cents: 4000000, quantity: 3, category: @category)
+
+      # checls to see if there is an error message
+      expect(@product.valid?).to be_falsey
     end
 
   end
