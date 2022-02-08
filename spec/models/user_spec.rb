@@ -52,5 +52,26 @@ RSpec.describe User, type: :model do
       expect(errors).to include("Password confirmation doesn't match Password")
     end
 
+    it 'raises an error when provided email is already assigned to an existing user' do
+      user_1 = User.create({
+        first_name: 'Mateo',
+        last_name: 'Flores',
+        password: 'roses12',
+        password_confirmation: 'roses12',
+        email: 'M.flores@EMAIL.com'
+      })
+
+      user_2 = User.create({
+        first_name: 'Mirabel',
+        last_name: 'Flores',
+        password: 'roses15',
+        password_confirmation: 'roses15',
+        email: 'm.flores@email.COM'
+      })
+      user_2_errors = user_2.errors.full_messages
+
+      expect(user_2_errors).to include("Email has already been taken")
+    end
+
   end
 end
