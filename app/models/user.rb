@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: @@minimum_password_length }
   validates :email, presence: true, uniqueness: { case_sensitive: false }
   
+  def authenticate_with_credentials(email, password)
+    # returns an instance of the user (if successfully authenticated) otherwise nil
+  end
+
 end
