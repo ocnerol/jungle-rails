@@ -3,22 +3,6 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   describe 'Validations' do
 
-    it 'successfully signs user up when given email has trailing spaces' do
-      user = User.new({
-        first_name: 'Mirabel',
-        last_name: 'Madrigal',
-        password: 'lapinchecasita',
-        password_confirmation: 'lapinchecasita',
-        email: '      Mira.Madrigal@Email.com   '
-      })
-
-      emailTrimmed = user.email.strip # 'Mira.Madrigal@Email.com'
-
-      user.custom_save
-
-      expect(user.email).to eql(emailTrimmed)
-    end
-    
     it 'successfully saves when provided matching password and password_confirmation' do
       user = User.create({
         first_name: 'Louis',
@@ -188,6 +172,26 @@ RSpec.describe User, type: :model do
       password = user.password
 
       expect(User.authenticate_with_credentials(email, password)).to eql(user)
+    end
+
+  end
+
+  describe '#custom_save' do
+
+    it 'successfully trims trailing whitespace in email before saving user in database' do
+      user = User.new({
+        first_name: 'Mirabel',
+        last_name: 'Madrigal',
+        password: 'lapinchecasita',
+        password_confirmation: 'lapinchecasita',
+        email: '      Mira.Madrigal@Email.com   '
+      })
+
+      emailTrimmed = user.email.strip # 'Mira.Madrigal@Email.com'
+
+      user.custom_save
+
+      expect(user.email).to eql(emailTrimmed)
     end
 
   end
