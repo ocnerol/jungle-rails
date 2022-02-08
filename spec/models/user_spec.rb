@@ -119,4 +119,15 @@ RSpec.describe User, type: :model do
     end
 
   end
+
+  describe '.authenticate_with_credentials' do
+    
+    it 'returns nil if user cannot be authenticated with given email and password' do
+      email = 'example@email.com'
+      password = '12345678'
+
+      expect(User.authenticate_with_credentials(email, password)).to be_nil
+    end
+
+  end
 end
