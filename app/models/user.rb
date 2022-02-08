@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   
   def self.authenticate_with_credentials(email, password)
     # returns an instance of the user (if successfully authenticated) otherwise nil
-    user = User.find_by_email(email.strip)
+    user = User.where('lower(email) = ?', email.strip.downcase).take
     user && user.authenticate(password)
   end
 
