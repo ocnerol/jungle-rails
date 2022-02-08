@@ -7,8 +7,8 @@ RSpec.describe User, type: :model do
       user = User.create({
         first_name: 'Louis',
         last_name: 'Torres',
-        password: '123pass',
-        password_confirmation: '123pass',
+        password: '123pass!!',
+        password_confirmation: '123pass!!',
         email: 'Louis@email.com'
           })
 
@@ -19,7 +19,7 @@ RSpec.describe User, type: :model do
       user = User.create({
         first_name: 'Louis',
         last_name: 'Torres',
-        password_confirmation: '123pass',
+        password_confirmation: '123pass!!',
         email: 'Louis@email.com'
           })
       errors = user.errors.full_messages
@@ -31,7 +31,7 @@ RSpec.describe User, type: :model do
       user = User.create({
         first_name: 'Louis',
         last_name: 'Torres',
-        password_confirmation: '123pass',
+        password_confirmation: '123pass!!',
         email: 'Louis@email.com'
           })
       errors = user.errors.full_messages
@@ -44,7 +44,7 @@ RSpec.describe User, type: :model do
         first_name: 'Louis',
         last_name: 'Torres',
         password: 'jdfhskjd',
-        password_confirmation: '123pass',
+        password_confirmation: '123pass!!',
         email: 'Louis@email.com'
           })
       errors = user.errors.full_messages
@@ -56,16 +56,16 @@ RSpec.describe User, type: :model do
       user_1 = User.create({
         first_name: 'Mateo',
         last_name: 'Flores',
-        password: 'roses12',
-        password_confirmation: 'roses12',
+        password: 'roses123',
+        password_confirmation: 'roses123',
         email: 'M.flores@EMAIL.com'
       })
 
       user_2 = User.create({
         first_name: 'Mirabel',
         last_name: 'Flores',
-        password: 'roses15',
-        password_confirmation: 'roses15',
+        password: 'roses152',
+        password_confirmation: 'roses152',
         email: 'm.flores@email.COM'
       })
       user_2_errors = user_2.errors.full_messages
@@ -76,8 +76,8 @@ RSpec.describe User, type: :model do
     it 'raises an error when a first name is not provided' do
       user = User.create({
         last_name: 'Torres',
-        password: '123pass',
-        password_confirmation: '123pass',
+        password: '123pass!!',
+        password_confirmation: '123pass!!',
         email: 'Louis@email.com'
           })
       
@@ -87,8 +87,8 @@ RSpec.describe User, type: :model do
     it 'raises an error when a last name is not provided' do
       user = User.create({
         first_name: 'Rey',
-        password: '123pass',
-        password_confirmation: '123pass',
+        password: '123pass!!',
+        password_confirmation: '123pass!!',
         email: 'Louis@email.com'
           })
       
@@ -99,8 +99,8 @@ RSpec.describe User, type: :model do
       user = User.create({
         first_name: 'Louis',
         last_name: 'Torres',
-        password: '123pass',
-        password_confirmation: '123pass'
+        password: '123pass!!',
+        password_confirmation: '123pass!!'
           })
 
       expect(user.errors.full_messages).to include("Email can't be blank")
