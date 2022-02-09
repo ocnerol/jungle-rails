@@ -17,7 +17,7 @@ RSpec.feature "Visitor navigates to product page from homepage by clicking a pro
     end
   end
 
-  scenario "They navigate to product page when clicking a product" do
+  scenario "They navigate to product page when clicking a product's details button" do
     # ACT
     visit root_path
     second_product = page.all('a', text: 'Details')[2]
