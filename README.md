@@ -17,8 +17,8 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 4. Run `bin/rake db:reset` to create, load and seed db
 5. Create .env file based on .env.example
 6. Sign up for a Stripe account
-7. Put Stripe (test) keys into appropriate .env vars
-8. Run `bin/rails s -b 0.0.0.0` to start the server
+7. Put Stripe (test) keys into appropriate .env vars (found on your Stripe account info)
+8. Starting the server: If you are running the server from a virtual machine, run `bin/rails s -b 0.0.0.0`. Otherwise, run `bin/rails s`.
 
 ## Stripe Testing
 
@@ -31,3 +31,28 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 * Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
 * PostgreSQL 9.x
 * Stripe
+* Bcrypt 3.1.7
+* Bootstrap-sass 3.3.6
+* Byebug
+* Capybara
+* Carrierwave
+* Database_cleaner
+* Dotenv-rails
+* Faker
+* Font-awesome-rails
+* jbuilder (~> 2.0)
+* jQuery-rails
+* Money-rails
+* Newrelic_rpm
+* Poltergeist
+* Puma
+* Quiet_assets
+* Rails_12factor
+* rmagick
+* rSpec-rails (~> 3.5)
+* SASS-rails (~> 5.0)
+* sdoc (~> 0.4.0)
+* Spring
+* turbolinks
+* Uglifier (>= 1.3.0)
+* Web-console (~> 2.0)
