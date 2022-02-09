@@ -31,7 +31,7 @@ RSpec.feature "Visitor navigates to product page from homepage by clicking a pro
   scenario "They navigate to product page when clicking a product's title" do
     # ACT
     visit root_path
-    random_product_title = page.all('h4').sample
+    random_product_title = page.all('h4.product-title').sample
     random_product_title.click
 
     # DEBUG / VERIFY
