@@ -39,5 +39,16 @@ RSpec.feature "Visitor navigates to product page from homepage by clicking a pro
     expect(page).to have_no_css 'article.product'
   end
 
+  scenario "They navigate to product page when clicking a product's image" do
+    # ACT
+    visit root_path
+    random_product_image = page.all('img.product-image').sample
+    random_product_image.click
+
+    # DEBUG / VERIFY
+    expect(page).to have_css 'section.products-show'
+    expect(page).to have_no_css 'article.product'
+  end
+
 
 end
