@@ -20,6 +20,9 @@ RSpec.feature "Visitor can add products to their cart", type: :feature, js: true
       # ACT
       visit root_path
       random_product_add_button = page.all('button.add-product').sample
+      cart_text = page.find('a.cart').text
+
+      expect(cart_text).to eql('My Cart (0)')
 
       # DEBUG / VERIFY
     end
