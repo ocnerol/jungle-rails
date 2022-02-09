@@ -3,10 +3,13 @@
 A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
 
 # Screenshots
-
+#### Homepage
 !["A view of the homepage, where all products are shown to the user."](https://github.com/ocnerol/jungle-rails/blob/main/docs/Home_page.png?raw=true)
+#### Single Product View
 !["A view of a page for a single product."](https://github.com/ocnerol/jungle-rails/blob/main/docs/Single_Product.png?raw=true)
+#### Visitor's Cart
 !["A view of a cart with three distinct products added."](https://github.com/ocnerol/jungle-rails/blob/main/docs/Cart.png?raw=true)
+#### Visitor's Order Confirmation
 !["A view of an order confirmation."](https://github.com/ocnerol/jungle-rails/blob/main/docs/Order.png?raw=true)
 
 
