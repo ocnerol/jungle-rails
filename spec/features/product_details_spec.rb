@@ -20,8 +20,8 @@ RSpec.feature "Visitor navigates to product page from homepage by clicking a pro
   scenario "They navigate to product page when clicking a product's details button" do
     # ACT
     visit root_path
-    second_product = page.all('a', text: 'Details')[2]
-    second_product.click
+    random_product_details_button = page.all('a', text: 'Details').sample
+    random_product_details_button.click
 
     # DEBUG / VERIFY
     expect(page).to have_css 'section.products-show'
